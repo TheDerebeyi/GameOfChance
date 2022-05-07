@@ -9,7 +9,7 @@ struct KISI{
     double para;
     double neKadar;
     int sayi;
-    int sonYatirilanMiktar;
+    double sonYatirilanMiktar;
 };
 
 typedef struct KISI* Kisi;

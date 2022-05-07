@@ -32,6 +32,7 @@ void start(const Oyun oyun){
         }
         oyun->tur++;
         kisiSirala(oyun);
+        /*printf("%lf, %s, %lf\n", oyun->kisiler[0]->para, oyun->kisiler[0]->ad, oyun->masaPara);*/
         yazdir(oyun);
     }
 }
@@ -51,7 +52,7 @@ void kisiSirala(const Oyun oyun){
     }
 
     for(int i = 0; i < oyun->kisiSayisi; i++){
-        if(oyun->kisiler[i]->para < 1000){
+        if(oyun->kisiler[i]->para <= 1000){
             oyun->kisiSayisi = i;
             break;
         }
@@ -59,14 +60,14 @@ void kisiSirala(const Oyun oyun){
 }
 
 void yazdir(const Oyun oyun){
-    /*system("clear");*/
+    system("cls");
 
     printf("\n\n\n\n\n\n\t\t\t\t");
     for (int i = 0; i < 45; i++)
     {
         printf("#");
     }
-    printf("\n\t\t\t\t##\t\tSANSLI SAYI: %-2d\t\t   ##\n\t\t\t\t", oyun->sayilar[oyun->tur]);
+    printf("\n\t\t\t\t##\t\tSANSLI SAYI: %-2d\t\t   ##\n\t\t\t\t", oyun->sayilar[oyun->tur-1]);
     for (int i = 0; i < 45; i++)
     {
         printf("#");
