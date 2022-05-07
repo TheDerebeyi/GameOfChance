@@ -20,11 +20,14 @@ Dosya new_Dosya(char *link)
 Kisi *kisiDizisi(const Dosya dosya)
 {
     Kisi *kisiler = malloc(dosya->satir * sizeof(struct KISI));
-    char tmp[100];
     int counter = 0;
-    while (fgets(tmp, 1000, dosya->fp))
+
+    while (counter != dosya->satir)
     {
-        kisiler[counter++] = new_Kisi(tmp);
+        char* tmp= malloc(sizeof(char)*100);
+        fgets(tmp, 100, dosya->fp);
+        kisiler[counter]= new_Kisi(tmp);
+        counter++;
     }
 
     return kisiler;
@@ -35,7 +38,7 @@ int* sayiDizisi(Dosya dosya)
     int *sayilar = malloc(dosya->satir * sizeof(int));
     char tmp[100];
     int counter = 0;
-    while (fgets(tmp, 1000, dosya->fp))
+    while (fgets(tmp, 100, dosya->fp))
     {
         sayilar[counter++] = strtol(tmp, NULL, 10);
     }

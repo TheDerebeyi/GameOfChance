@@ -15,7 +15,8 @@ struct KISI{
 typedef struct KISI* Kisi;
 
 Kisi new_Kisi(char*);
-void oyna(const Kisi, int);
+double oyna(const Kisi);
+int kazandiMi(const Kisi, int);
 double mevcutPara(const Kisi);
 
 #endif

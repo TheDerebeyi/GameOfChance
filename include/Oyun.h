@@ -10,7 +10,7 @@
 struct OYUN{
     Kisi* kisiler;
     int* sayilar;
-    int masaPara;
+    double masaPara;
     int tur;
     int kisiSayisi;
 

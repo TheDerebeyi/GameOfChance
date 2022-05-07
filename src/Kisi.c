@@ -12,13 +12,17 @@ Kisi new_Kisi(char* string){
     return kisi;
 }
 
-void oyna(const Kisi kisi, int cikanNum){
-    int tutar = kisi->para * kisi->neKadar;
-    kisi->para -= tutar;
+double oyna(const Kisi kisi){
+    kisi->sonYatirilanMiktar = kisi->para * kisi->neKadar;
+    kisi->para -= kisi->sonYatirilanMiktar;
+    return kisi->sonYatirilanMiktar;
+}
 
-    if(cikanNum!= kisi->sayi) return;
+int kazandiMi(const Kisi kisi, int cikanNum){
+    if(cikanNum!= kisi->sayi) return 0;
 
     kisi->para += kisi->sonYatirilanMiktar * 10;
+    return 1;
 }
 
 double mevcutPara(const Kisi kisi){

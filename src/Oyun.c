@@ -18,12 +18,20 @@ Oyun new_Oyun(){
 }
 
 void start(const Oyun oyun){
+    /*kisiSirala(oyun);*/
+   /* for(int i = 0; i < 1000; i++){
+        printf("%.2lf, %s\n",oyun->kisiler[i]->para, oyun->kisiler[i]->ad);
+    }*/
+
     while(oyun->kisiSayisi!=0){
         for(int i = 0; i < oyun->kisiSayisi; i++){
-            oyna(oyun->kisiler[i], oyun->sayilar[oyun->tur]);
+            oyun->masaPara += oyna(oyun->kisiler[i]);
+            if(kazandiMi(oyun->kisiler[i], oyun->sayilar[oyun->tur])){
+                oyun->masaPara -= oyun->kisiler[i]->sonYatirilanMiktar * 10;
+            }
         }
-        kisiSirala(oyun);
         oyun->tur++;
+        kisiSirala(oyun);
         yazdir(oyun);
     }
 }
@@ -31,8 +39,8 @@ void start(const Oyun oyun){
 void kisiSirala(const Oyun oyun){
     for(int i = 0; i < oyun->kisiSayisi - 1; i++){
         int degisim = 0;
-        for(int j = 0; j < oyun->kisiSayisi; j++){
-            if(oyun->kisiler[j] < oyun->kisiler[j+1]){
+        for(int j = 0; j < oyun->kisiSayisi - 1; j++){
+            if(oyun->kisiler[j]->para < oyun->kisiler[j+1]->para){
                 Kisi tmp = oyun->kisiler[j+1];
                 oyun->kisiler[j+1] = oyun->kisiler[j];
                 oyun->kisiler[j] = tmp;
@@ -51,9 +59,9 @@ void kisiSirala(const Oyun oyun){
 }
 
 void yazdir(const Oyun oyun){
-    system("clear");
+    /*system("clear");*/
 
-    printf("\n\n\n\t\t\t\t");
+    printf("\n\n\n\n\n\n\t\t\t\t");
     for (int i = 0; i < 45; i++)
     {
         printf("#");
@@ -72,7 +80,7 @@ void yazdir(const Oyun oyun){
     for(int i = 0 ; i <41; i++){
         printf("-");
     }
-    printf("##\n\t\t\t\t##\t\tEN ZENGIN KISI\t\t   ##\n\t\t\t\t##\t\t%-22s     ##\n\t\t\t\t##\tBAKIYESI: %-10.2lf TL\t   ##\n\t\t\t\t##\t\t\t\t\t   ##\n\t\t\t\t", "Christopher McCullough", mevcutPara(oyun->kisiler[0]));
+    printf("##\n\t\t\t\t##\t\tEN ZENGIN KISI\t\t   ##\n\t\t\t\t##\t\t%-22s     ##\n\t\t\t\t##\tBAKIYESI: %-10.2lf TL\t\t   ##\n\t\t\t\t##\t\t\t\t\t   ##\n\t\t\t\t", oyun->kisiler[0]->ad, mevcutPara(oyun->kisiler[0]));
         for (int i = 0; i < 45; i++)
     {
         printf("#");
