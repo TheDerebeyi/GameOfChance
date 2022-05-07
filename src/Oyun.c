@@ -18,11 +18,6 @@ Oyun new_Oyun(){
 }
 
 void start(const Oyun oyun){
-    /*kisiSirala(oyun);*/
-   /* for(int i = 0; i < 1000; i++){
-        printf("%.2lf, %s\n",oyun->kisiler[i]->para, oyun->kisiler[i]->ad);
-    }*/
-
     while(oyun->kisiSayisi!=0){
         for(int i = 0; i < oyun->kisiSayisi; i++){
             oyun->masaPara += oyna(oyun->kisiler[i]);
@@ -32,8 +27,26 @@ void start(const Oyun oyun){
         }
         oyun->tur++;
         kisiSirala(oyun);
-        /*printf("%lf, %s, %lf\n", oyun->kisiler[0]->para, oyun->kisiler[0]->ad, oyun->masaPara);*/
+        
         yazdir(oyun);
+    }
+
+    system("cls");
+
+    printf("\n\n\n\n\n");
+    printf("\n\t\t\t\t");
+    for (int i = 0; i < 45; i++)
+    {
+        printf("#");
+    }
+    printf("\n\t\t\t\t##\t\tTUR: %-3d\t\t   ##\n\t\t\t\t##\tMASA BAKIYE: %-10.2lf TL\t   ##\n\t\t\t\t##\t\t\t\t\t   ##\n\t\t\t\t##", oyun->tur,oyun->masaPara);
+    for(int i = 0 ; i <41; i++){
+        printf("-");
+    }
+    printf("##\n\t\t\t\t##\t\tOYUN BITTI\t\t   ##\n\t\t\t\t##\t\t\t\t\t   ##\n\t\t\t\t##\t\t\t\t\t   ##\n\t\t\t\t##\t\t\t\t\t   ##\n\t\t\t\t");
+        for (int i = 0; i < 45; i++)
+    {
+        printf("#");
     }
 }
 
