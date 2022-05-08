@@ -7,8 +7,8 @@ Dosya new_Dosya(char *link)
     dosya->satir = 0;
     char tmp[100];
 
-    while (fgets(tmp, 1000, dosya->fp))
-    {
+    while (fgets(tmp, 1000, dosya->fp))     //Hangi dosya aktarılırsa aktarılsın satır sayısını burada dosyadan hesaplıyoruz.
+    {                                       //Bunu yapmamın sebebi dinamik bir sistem oluşturmak.
         dosya->satir++;
     }
 
@@ -22,9 +22,9 @@ Kisi *kisiDizisi(const Dosya dosya)
     Kisi *kisiler = malloc(dosya->satir * sizeof(struct KISI));
     int counter = 0;
 
-    while (counter != dosya->satir)
-    {
-        char* tmp= malloc(sizeof(char)*100);
+    while (counter != dosya->satir)             //Dosyadaki her satır bir kişiyi temsil ettiğinden her satır okunup
+    {                                           //O satırdan bir kişi nesnesi oluşturuluyor. Bu kişiler bir dizide tutularak
+        char* tmp= malloc(sizeof(char)*100);    //oyun sistemine gönderilecek.
         fgets(tmp, 100, dosya->fp);
         kisiler[counter]= new_Kisi(tmp);
         free(tmp);
