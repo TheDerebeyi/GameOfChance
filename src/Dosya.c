@@ -27,6 +27,7 @@ Kisi *kisiDizisi(const Dosya dosya)
         char* tmp= malloc(sizeof(char)*100);
         fgets(tmp, 100, dosya->fp);
         kisiler[counter]= new_Kisi(tmp);
+        free(tmp);
         counter++;
     }
 

@@ -10,7 +10,12 @@ Oyun new_Oyun(){
 
     delete_Dosya(tmp);
 
-    oyun->sayilar = sayiDizisi(new_Dosya("../Sayilar.txt"));
+
+    tmp = new_Dosya("../Sayilar.txt");
+
+    oyun->sayilar = sayiDizisi(tmp);
+    
+    delete_Dosya(tmp);
 
     oyun->masaPara = 0;
 
@@ -99,4 +104,14 @@ void yazdir(const Oyun oyun){
     {
         printf("#");
     }
+}
+
+
+void delete_Oyun(const Oyun oyun){
+    if(oyun == NULL) return;
+
+    free(oyun->sayilar);
+    free(oyun->kisiler);
+
+    free(oyun);
 }

@@ -22,6 +22,7 @@ Oyun new_Oyun();
 void start(const Oyun);
 void kisiSirala(const Oyun);
 void yazdir(const Oyun);
+void delete_Oyun(const Oyun);
 
 
 

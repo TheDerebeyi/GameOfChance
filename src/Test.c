@@ -8,5 +8,6 @@ int main(int args, char *argv[])
 
     Oyun oyun = new_Oyun();
     start(oyun);
+    delete_Oyun(oyun);
     getchar();
 }

@@ -18,5 +18,6 @@ Kisi new_Kisi(char*);
 double oyna(const Kisi);
 int kazandiMi(const Kisi, int);
 double mevcutPara(const Kisi);
+void delete_Kisi(const Kisi);
 
 #endif

@@ -28,3 +28,9 @@ int kazandiMi(const Kisi kisi, int cikanNum){
 double mevcutPara(const Kisi kisi){
     return kisi->para;
 }
+
+void delete_Kisi(const Kisi kisi){
+    if(kisi == NULL) return;
+    free(kisi->ad);
+    free(kisi);
+}
